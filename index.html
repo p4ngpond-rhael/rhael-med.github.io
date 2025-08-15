@@ -1,266 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="website.css">
-    </head>
-    <style>
-        :root {
-            --primary-color: #4CAF50;
-            --secondary-color: rgb(217, 245, 255);
-            --text-color: #333;
-        }
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        a{
-            text-decoration: none;
-            color: inherit;
-        }
-        @media (max-width: 450px) {
-            .nav-button, .login{
-                width: 100%;
-            }
-            .navigation {
-                flex-direction: column !important;
-            }
-            .nav-bar {
-                flex-direction: column !important;
-                width: 100%;
-            }
-            .login-button {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-        
-        @media (min-width: 450px) {
-            .nav-button {
-                flex-basis: 20%;
-            }
-            .login-button {
-                width: auto;
-            }
-        }
-        .wholebody {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .navigation {
-            width: 100%;
-            background-color: #333;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .nav-button {
-            flex-grow: 1;
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-        .nav-button:hover {
-            background-color: #555;
-        }
-        .login-button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-        .login-button:hover {
-            background-color: #218838;
-        }
-        .nav-bar {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-        .login{
-            flex-grow: 1;
-            display: flex;
-            justify-content: flex-end;
-        }
-        .material {
-            width: 100%;
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-        }
-        
-        @media (min-width: 450px) {
-            .info {
-                max-width: 450px;
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-        }
-        @media (max-width: 450px) {
-            .home{
-                justify-content: center !important;
-                align-items: center !important;
-            }
-            .year{
-                width: 200px !important;
-            }
-        }
-        .info{
-            border-radius: 10px;
-            border: #333 solid 2px;
-            background-color: #f8f9fa;
-            margin: 5px;
-            text-align: center;
-        }
-        .bachelor {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .year{
-            width: 100%;
-            max-width: 450px;
-            background-color: #28a745;
-            color: white;
-            padding: 10px;
-            margin: 5px;
-            text-align: center;
-            justify-content: center;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .year:hover{
-            background-color: #218838;
-            color: white;
-        }
+<html lang="en" class="scroll-smooth">
 
-        /* Changelog Container */
-        .changelog-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        /* Changelog Bubble */
-        .changelog-bubble {
-            background-color: #d5ffc2;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
+<head>
+    <script src="/Javascript/refresh.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern College Website</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link href="/CSS/index.css" rel="stylesheet">
+    <link href="/CSS/main.css" rel="stylesheet">
+</head>
 
-        /* Changelog panel */
-        .changelog-panel {
-            position: absolute;
-            bottom: 60px;
-            right: 0;
-            background-color: white;
-            color: black;
-            padding: 15px;
-            border-radius: 10px;
-            width: 250px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            opacity: 0;              /* invisible by default */
-            transform: translateY(10px); /* slightly below */
-            pointer-events: none;    /* ignore mouse when hidden */
-            
-            transition: all 0.3s ease; /* smooth transition */
-        }
-        .changelog-panel.active {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-        .changelog-panel ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        .changelog-panel h3 {
-            margin-top: 0;
-        }
+<body>
 
-    </style>
-    <body>
-        <div class="wholebody">
-            <div class="navigation">
-                <div class="nav-bar">
-                    <button class="nav-button" href="home.html">Home</button>
-                    <button class="nav-button" href="material.html">Materials</button>
-                    <button class="nav-button" href="quizzes.html">Quizzes</button>
-                    <button class="nav-button" href="contact.html">Contact&Support</button>
-                </div>
-                <div class="login">
-                    <button class="login-button">Login</button>
-                </div>
+    <div id="preloader"><div class="spinner"></div></div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="container header-nav">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <i class="fas fa-graduation-cap mr-2"></i>MDKKU
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#materials" class="nav-link">Materials</a>
+                <a href="#quizzes" class="nav-link">Quizzes</a>
+                <a href="#SR" class="nav-link">Support & Report</a>
             </div>
-            <div class="home">
-                <h1>Welcome to Our Website</h1>
-            </div>
-            <div class="material">
-                <div class="info">
-                    <h2>Materials</h2>
-                    <p>Explore our wide range of materials on various topics.</p>
-                </div>
-                <div class="bachelor">
-                    <div class="year">
-                        <a href="https://www.example.com"> Year 1 </a>
-                    </div>
-                    <div class="year">
-                        Year 2
-                    </div>
-                    <div class="year">
-                        Year 3
-                    </div>
-                    <div class="year">
-                        Year 4
-                    </div>
-                    <div class="year">
-                        Year 5
-                    </div>
-                    <div class="year">
-                        Year 6
+
+            <!-- Right side buttons -->
+            <div class="header-actions">
+                <button id="dark-mode-toggle" class="dark-mode-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" id="login-button" class="btn-login">Login</a>
+                <!-- ADD THIS NEW HTML BLOCK -->
+                <div id="profile-menu" class="profile-menu hidden">
+                    <div id="profile-icon" class="profile-icon"></div>
+                    <div id="profile-dropdown" class="dropdown-content">
+                        <div class="dropdown-header">
+                            <p id="dropdown-username" class="dropdown-header-username"></p>
+                            <p id="dropdown-email" class="dropdown-header-email"></p>
+                        </div>
+                        <a href="#">Edit Profile</a>
+                        <a href="#" id="logout-link">Logout</a>
                     </div>
                 </div>
+                <!-- END OF NEW HTML BLOCK -->
             </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="mobile-menu-container">
+                <button id="dark-mode-toggle-mobile" class="dark-mode-toggle mr-4">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#home">Home</a>
+            <a href="#materials">Materials</a>
+            <a href="#quizzes">Quizzes</a>
+            <a href="#SR">Support & Report</a>
+            <a href="#" class="btn-login">Login</a>
         </div>
+    </header>
 
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero container">
+            <h1 class="hero-title">Your Gateway to Knowledge</h1>
+            <p class="hero-subtitle">
+                Explore a world of learning with our comprehensive materials, interactive quizzes, and dedicated
+                support.
+            </p>
+            <a href="#materials" class="btn-cta">
+                Get Started
+            </a>
+        </section>
 
-        <!-- Changelog -->
+        <!-- Materials Section -->
+        <section id="materials" class="materials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Study Materials</h2>
+                    <p class="section-subtitle">Organized by year for your convenience.</p>
+                </div>
+                <div class="card-grid">
+                    <!-- Year Card Example -->
+                    <div class="year-card">
+                        <div class="year">Year 1</div>
+                        <h3>Topic</h3>
+                        <p>Short Explanation</p>
+                        <a href="topic-selection.html?year=1">Explore Modules <i
+                                class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <!-- Year Card Example -->
+                    <div class="year-card">
+                        <div class="year">Year 2</div>
+                        <h3>Topic</h3>
+                        <p>Short Explanation</p>
+                        <a href="topic-selection.html?year=2">Explore Modules <i
+                                class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <!-- Year Card Example -->
+                    <div class="year-card">
+                        <div class="year">Year 3</div>
+                        <h3>Topic</h3>
+                        <p>Short Explanation</p>
+                        <a href="topic-selection.html?year=3">Explore Modules <i
+                                class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <!-- Year Card Example -->
+                    <div class="year-card">
+                        <div class="year">Year 4</div>
+                        <h3>Topic</h3>
+                        <p>Short Explanation</p>
+                        <a href="topic-selection.html?year=4">Explore Modules <i
+                                class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <!-- Year Card Example -->
+                    <div class="year-card">
+                        <div class="year">Year 5</div>
+                        <h3>Topic</h3>
+                        <p>Short Explanation</p>
+                        <a href="topic-selection.html?year=5">Explore Modules <i
+                                class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <!-- Year Card Example -->
+                    <div class="year-card">
+                        <div class="year">Year 6</div>
+                        <h3>Topic</h3>
+                        <p>Short Explanation</p>
+                        <a href="topic-selection.html?year=6">Explore Modules <i
+                                class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <!-- Add more year cards as needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Quizzes Placeholder Section -->
+        <section id="quizzes" class="quizzes-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Quizzes</h2>
+                    <p class="section-subtitle">Test your knowledge and prepare for exams. Coming soon!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support & Report Section -->
+        <section id="SR" class="SR-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Support & Report</h2>
+                    <p class="section-subtitle">Have a question or need to report an issue? We're here to help.</p>
+                </div>
+                <div class="form-container">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name/Nickname and Gen</label>
+                            <input type="text" id="name" name="name" placeholder="Ex. Rhael MD00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email (kkumail only)</label>
+                            <input type="email" id="email" name="email" placeholder="Ex. rhael.jr@kkumail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="7" 
+                            placeholder="Ex. Material/Quiz Year 2
+                            &#13;Topic : Biochemistry
+                            &#13;Question ID : EMBRY99001
+                            &#13;Detail : It seems like the problem's image is missing."
+                            required></textarea>
+                        </div>
+                        <button type="submit" class="btn-cta">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- Changelog Bubble -->
         <div class="changelog-container">
-            <div class="changelog-bubble" id="bubble">
-                📝
+            <div id="changelog-bubble">
+                <i class="fas fa-scroll"></i>
             </div>
-
-            <div class="changelog-panel" id="panel">
-            <h3>Changelog</h3>
-            <ul>
-                <li><strong>v0.1</strong> - On working :3 🚧</li>
-            </ul>
+            <div id="changelog-panel" class="hidden">
+                <h3>Changelog</h3>
+                <ul>
+                    <li><strong>v0.2.2</strong> - Admin page is created. CRUD feature is ongoing.</li>
+                    <li><strong>v0.2.1</strong> - More linking page.</li>
+                    <li><strong>v0.2</strong> - Modern UI Refresh!</li>
+                    <li><strong>v0.1</strong> - Initial project setup.</li>
+                </ul>
             </div>
         </div>
+    </main>
 
-    </body>
-    <script>
-        const bubble = document.querySelector('.changelog-bubble');
-        const panel = document.querySelector('.changelog-panel');
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Rhael (Furry Developer). All Rights Reserved.</p>
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/pangpond.yasamorn.7/" target="_blank"><i
+                        class="fab fa-facebook fa-lg"></i></a>
+                <a href="https://x.com/Ppng_Rhael" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="https://www.instagram.com/pangpond_rhael/" target="_blank"><i
+                        class="fab fa-instagram fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
 
-        bubble.addEventListener('click', () => {
-            panel.classList.toggle('active');
-        });
+    <script src="/Javascript/main.js"></script>
+    <script src="/Javascript/index.js"></script>
+</body>
 
-    </script>
 </html>

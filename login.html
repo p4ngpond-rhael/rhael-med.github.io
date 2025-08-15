@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/CSS/main.css" rel="stylesheet">
+    <link href="/CSS/login.css" rel="stylesheet">
+</head>
+<body>
+    <div id="preloader"><div class="spinner"></div></div>
+    <div class="auth-card">
+        <div class="auth-tabs">
+            <button id="login-tab" class="auth-tab-button">Login</button>
+            <button id="register-tab" class="auth-tab-button">Register</button>
+        </div>
+        <div class="forms-wrapper">
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form">
+                <h2>Welcome Back!</h2>
+                <div><label for="login-email" class="sr-only">Email</label><input type="email" id="login-email" placeholder="Email" required class="auth-input"></div>
+                <div><label for="login-password" class="sr-only">Password</label><input type="password" id="login-password" placeholder="Password" required class="auth-input"></div>
+                <button type="submit" class="auth-submit-button">Login</button>
+            </form>
+            <!-- Registration Form -->
+            <form id="register-form" class="auth-form">
+                <h2>Create an Account</h2>
+                <div><label for="register-username" class="sr-only">Username</label><input type="text" id="register-username" placeholder="Username" required class="auth-input"></div>
+                <div><label for="register-email" class="sr-only">Email</label><input type="email" id="register-email" placeholder="Email" required class="auth-input"></div>
+                <div><label for="register-password" class="sr-only">Password</label><input type="password" id="register-password" placeholder="Password" required class="auth-input"></div>
+                <div><label for="confirm-password" class="sr-only">Confirm Password</label><input type="password" id="confirm-password" placeholder="Confirm Password" required class="auth-input"></div>
+                <button type="submit" class="auth-submit-button">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/Javascript/main.js"></script>
+    <script src="/Javascript/login.js"></script>
+
+</body>
+</html>

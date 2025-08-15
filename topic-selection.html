@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <script src="/Javascript/refresh.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Year 1 Topics - MDKKU</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link href="/CSS/topic-selection.css" rel="stylesheet">
+    <link href="/CSS/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="preloader"><div class="spinner"></div></div>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="container header-nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-graduation-cap mr-2"></i>MDKKU
+            </a>
+            <div class="nav-links">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#materials" class="nav-link active">Materials</a>
+                <a href="index.html#quizzes" class="nav-link">Quizzes</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="header-actions">
+                <button id="dark-mode-toggle" class="dark-mode-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="btn-login">Login</a>
+            </div>
+            <div class="mobile-menu-container">
+                <button id="dark-mode-toggle-mobile" class="dark-mode-toggle mr-4">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#materials">Materials</a>
+            <a href="index.html#quizzes">Quizzes</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="login.html" class="btn-login">Login</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="topics-section">
+            <div class="container">
+                <div class="topics-header">
+                    <a href="index.html#materials" class="btn-back">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to All Years</span>
+                    </a>
+                    <h1 id="year-title">Loading Topics...</h1>
+                </div>
+
+                <!-- Grid of Topic Cards -->
+                <div id="topic-grid" class="topic-grid">
+                    <!-- This will be filled by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Rhael (Furry Developer). All Rights Reserved.</p>
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/pangpond.yasamorn.7/" target="_blank"><i
+                        class="fab fa-facebook fa-lg"></i></a>
+                <a href="https://x.com/Ppng_Rhael" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="https://www.instagram.com/pangpond_rhael/" target="_blank"><i
+                        class="fab fa-instagram fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/Javascript/main.js"></script>
+    <script src="/Javascript/topic-selection.js"></script>
+</body>
+
+</html>
